@@ -10,7 +10,7 @@ function Car(make, model, year, color, previous_owners, state, current_owner, pa
 }
 
 
-
+// this = "this instance of..." 
 
 
 Car.prototype.sale = function(newOwner){
@@ -37,18 +37,18 @@ Car.prototype.park = function(park){
 		console.log("parked!")
 	}
 }
-	Car.prototype.pick_up = function(name){
-		if (this.state === "on") {
-			console.log("driving to pick up " + name + " .");
-			this.passengers.push(name);
-		}
-	};
-
-
-	Car.prototype.dropOff = function(name){
-		var index = this.passengers.indexOf(name);
-		if (this.state === "on" && index !== -1){
-			this.passengers.splice(index, 1);
-}
+Car.prototype.pick_up = function(name){
+	if (this.state === "on") {
+		console.log("driving to pick up " + name + " .");
+		this.passengers.push(name);
+	}
 };
+Car.prototype.dropOff = function(name){
+	var index = this.passengers.indexOf(name);
+	if (this.state === "on" && index !== -1){
+		this.passengers.pop();
+	}
+};
+
+
 module.exports=Car;
